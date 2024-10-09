@@ -3,12 +3,14 @@
 def hi_decorator(func):
     def wrapper(*args, **kwargs):
         print("Hello, Good morning")
-        func(*args, **kwargs)
+        result = func(*args, **kwargs)
+        print(f"Here is {result}")
     return wrapper
 
 @hi_decorator
-def payment():
-    print("BBIK")
+def payment(number):
+    price = number * 4.5 # bus fee is 4.5$ per person.
+    return price
 
-
-payment()
+number = 3
+payment(number)
