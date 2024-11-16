@@ -35,3 +35,11 @@ my_electric_car.charge_battery() # 자식 클래스 메서드 사용
 
 my_electric_car = ElectricCar("Tesla", "Model S", 2022, 100)
 my_electric_car.start_engine()
+
+# 정적 메서드와 클래스 메서드
+class Calculator:
+    @staticmethod
+    def add(a, b):
+        return a+b
+print(Calculator.add(5, 3))
+
