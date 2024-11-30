@@ -1,31 +1,34 @@
 if __name__ == '__main__':
     N = int(input())
 
-    list = []    
+    my_list = []    
     for i in range(N):
         command = input().split()
                 
         # insert
         if (command[0] =="insert"):
-            list.insert(command[2], command[1])
+            my_list.insert(int(command[1]), int(command[2]))
         # print
         elif(command[0] =="print"):
             
-            print(list(map(int, list)))
+            print(my_list)
         # remove
         elif(command[0] == "remove"):
-            list.remove(command[1])
+            my_list.remove(int(command[1]))
         # append
         elif(command[0] == "append"):
-            list.append(command[1])
+            my_list.append(int(command[1]))
         # sort
         elif(command[0] == "sort"):
-            list.sort()
+            my_list.sort()
         # pop
         elif(command[0] == "pop"):
-            list.pop(command[1])
+            if len(command) > 1:  # pop with index
+                my_list.pop(int(command[1]))
+            else:  # pop last element
+                my_list.pop()
         # reverse
         elif(command[0] == "reverse"):
-            list.reverse()
+            my_list.reverse()
         else:
             print("error")
