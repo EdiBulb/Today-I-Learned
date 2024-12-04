@@ -1,34 +1,12 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.27;
-
-// Uncomment this line to use console.log
-// import "hardhat/console.sol";
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.27; // Solidity 버전을 지정한다.
 
 contract Lock {
-    uint public unlockTime;
-    address payable public owner;
+    //상태변수 : 블록체인에 저장되는 값
+    uint256 public unlockTime; // 잠금 해제 시간 (Unix 타임스탬프)
 
-    event Withdrawal(uint amount, uint when);
-
-    constructor(uint _unlockTime) payable {
-        require(
-            block.timestamp < _unlockTime,
-            "Unlock time should be in the future"
-        );
-
+    //생성자 : 스마트 컨트랙트를 배포할 때 실행
+    constructor(uint256 _unlockTime) {
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
-    }
-
-    function withdraw() public {
-        // Uncomment this line, and the import of "hardhat/console.sol", to print a log in your terminal
-        // console.log("Unlock time is %o and block timestamp is %o", unlockTime, block.timestamp);
-
-        require(block.timestamp >= unlockTime, "You can't withdraw yet");
-        require(msg.sender == owner, "You aren't the owner");
-
-        emit Withdrawal(address(this).balance, block.timestamp);
-
-        owner.transfer(address(this).balance);
     }
 }
