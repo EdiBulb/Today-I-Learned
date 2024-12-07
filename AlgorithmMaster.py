@@ -10,6 +10,13 @@ def change_title(title, position, character):
     l[position] = character
     new_title = ''.join(l)
     return new_title
+
+def count_substring(string, sub_string):
+    count = 0
+    for i in range(len(string) - len(sub_string) +1):
+        if string[i:i+len(sub_string)] == sub_string:
+            count+=1 
+    return count
     
 if __name__ == '__main__':
     print("Pls put your name")
@@ -19,7 +26,12 @@ if __name__ == '__main__':
     
 
     existing_title = input("Previous name: ")
-    index = input()
+    index = input("what is index: ")
     new_title = input("new name:")
     new_name=change_title(existing_title, int(index), new_title)
     print(new_name)
+    
+    # coffee order
+    order = "We will order one americano coffee, latte coffee"
+    number_of_coffee= count_substring(order, "coffee")
+    print(number_of_coffee)
