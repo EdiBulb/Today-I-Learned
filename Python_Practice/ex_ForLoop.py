@@ -45,3 +45,27 @@ for i in range(3):
         if(i+j) % 2 ==1:
             print(f"({i}, {j})", end = " ")
     print()
+    
+# range(start, stop, step)
+for i in range(5):
+    print(i)
+
+for i in range(2, 6):
+    print(i)
+
+for i in range(1, 10, 2):
+    print(i)
+    
+for i in range(10, 0, -2):
+    print(i)
+    
+# looping over indexes
+fruits = ['apple', 'banana', 'cherry']
+for i in range(len(fruits)):
+    print(f"Index {i}: {fruits}")
+
+# Access String characters by index
+word = "Python"
+for i in range(len(word)):
+    print(f"Index {i}: {word[i]}")
+    
