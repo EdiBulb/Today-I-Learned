@@ -69,3 +69,8 @@ word = "Python"
 for i in range(len(word)):
     print(f"Index {i}: {word[i]}")
     
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(f"{i * j:4}", end = " ") # :4 means 4 spaces for f-format string
+    print()
