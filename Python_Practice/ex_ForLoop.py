@@ -74,3 +74,17 @@ for i in range(1, 11):
     for j in range(1, 11):
         print(f"{i * j:4}", end = " ") # :4 means 4 spaces for f-format string
     print()
+
+# Prime number finding
+n = 50
+primes = []
+
+for num in range(2, n+1):
+    is_prime = True
+    for divisor in range(2, int(num ** 0.5) + 1):
+        if num % divisor == 0:
+            is_prime = False
+            break
+    if is_prime:
+        primes.append(num)
+print(f"Prime numbers up to {n}: {primes}")
