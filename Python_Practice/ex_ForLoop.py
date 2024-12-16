@@ -88,3 +88,12 @@ for num in range(2, n+1):
     if is_prime:
         primes.append(num)
 print(f"Prime numbers up to {n}: {primes}")
+
+
+# Finding all pairs that add to a target
+nums = [2, 4, 3, 7, 5, 8]
+target = 10
+for i in range(len(nums)):
+    for j in range(i + 1, len(nums)):
+        if nums[i] + nums[j] == target:
+            print(f"Pair: ({nums[i]}, {nums[j]})")
