@@ -97,3 +97,17 @@ for i in range(len(nums)):
     for j in range(i + 1, len(nums)):
         if nums[i] + nums[j] == target:
             print(f"Pair: ({nums[i]}, {nums[j]})")
+            
+n, m = 3, 4
+count = 1
+
+for i in range(n):  # Outer loop: rows
+    if i % 2 == 0:  # Left-to-right for even rows
+        for j in range(m):
+            print(f"{count:3}", end=" ")
+            count += 1
+    else:  # Right-to-left for odd rows
+        for j in range(m - 1, -1, -1):
+            print(f"{count - (m - j):3}", end=" ")
+        count += m
+    print()
