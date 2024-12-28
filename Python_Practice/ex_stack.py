@@ -54,3 +54,22 @@ print("Stack after pushes:", stack.items)
 print("Popped:", stack.pop())
 print("Top element:", stack.peek())
 
+
+def is_balanced(expression):
+    stack = []
+    for char in expression:
+        if char in "({[":
+            stack.append(char)
+        elif char in ")}]":
+            if not stack:
+                return False
+            top = stack.pop()
+            if not ((top == '(' and char == ')') or
+                    (top == '{' and char == '}') or
+                    (top == '[' and char == ']')):
+                return False
+    return len(stack) == 0
+
+# Test
+print(is_balanced("(())"))  # Output: True
+print(is_balanced("([)]"))  # Output: False
